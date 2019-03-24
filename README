@@ -1,2 +1,3 @@
-A small example on how to use the Jira Rest client for Java.
-The docs on atlassian.com are outdated/scattered
+The purpose of this application rose from the need to automate SP Fixes file generation process.
+This is a simple Java Swing application where users can automatically build SP-Fixes.txt,
+given a JIRA url, username, password, fixVersion and output folder path.
