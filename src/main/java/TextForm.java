@@ -124,6 +124,10 @@ class TextForm extends JPanel implements ActionListener  {
     f.setVisible( true );
   }
 
+  /**
+   * Generate file button action.
+   * @param e
+   */
   public void actionPerformed( ActionEvent e ) {
     System.out.println();
     String url = getUrlField();
@@ -134,8 +138,9 @@ class TextForm extends JPanel implements ActionListener  {
     try {
       Iterable<Issue> issues = JRC.getIssuesByFixedVersion( url, user, password, fixVersion );
       buildSPFixesFiles( url, user, password, fixVersion, issues.iterator(), getFolderField() + "SP-Fixes.txt" );
+      showSuccessDialog();
     } catch ( Exception e1 ) {
-      e1.printStackTrace();
+      showErrorDialog();
     }
   }
 
@@ -169,5 +174,19 @@ class TextForm extends JPanel implements ActionListener  {
 
     printWriter.printf( "================================================================================================" );
     printWriter.close();
+  }
+
+  public static void showErrorDialog() {
+    JOptionPane optionPane = new JOptionPane( "Something went wrong!", JOptionPane.ERROR_MESSAGE );
+    JDialog dialog = optionPane.createDialog( "Error" );
+    dialog.setAlwaysOnTop( true ); // to show top of all other application
+    dialog.setVisible( true ); // to visible the dialog
+  }
+
+  public static void showSuccessDialog() {
+    JOptionPane optionPane = new JOptionPane( "SP Fixes files has been created!", JOptionPane.INFORMATION_MESSAGE );
+    JDialog dialog = optionPane.createDialog( "Success" );
+    dialog.setAlwaysOnTop( true ); // to show top of all other application
+    dialog.setVisible( true ); // to visible the dialog
   }
 }
