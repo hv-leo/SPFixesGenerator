@@ -2,7 +2,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Optional;
 
-import com.atlassian.jira.rest.client.api.IssueRestClient;
 import com.atlassian.jira.rest.client.api.JiraRestClient;
 import com.atlassian.jira.rest.client.api.JiraRestClientFactory;
 import com.atlassian.jira.rest.client.api.SearchRestClient;
@@ -19,9 +18,9 @@ public class JRC {
    * @throws Exception
   */
   public static Issue getIssue( String url, String user, String password, String issueKey ) throws Exception {
-      URI jiraServerUri = new URI( url );
-      JiraRestClientFactory factory = new AsynchronousJiraRestClientFactory();
-      JiraRestClient client = factory.createWithBasicHttpAuthentication( jiraServerUri, user, password );
+    URI jiraServerUri = new URI( url );
+    JiraRestClientFactory factory = new AsynchronousJiraRestClientFactory();
+    JiraRestClient client = factory.createWithBasicHttpAuthentication( jiraServerUri, user, password );
     Promise issuePromise = client.getIssueClient().getIssue( issueKey );
     return Optional.ofNullable( (Issue) issuePromise.claim() ).orElseThrow( ( ) -> new Exception( "No such issue" ) );
   }
@@ -36,10 +35,9 @@ public class JRC {
     URI jiraServerUri = new URI( url );
     JiraRestClientFactory factory = new AsynchronousJiraRestClientFactory();
     JiraRestClient client = factory.createWithBasicHttpAuthentication( jiraServerUri, user, password );
-    IssueRestClient issueClient = client.getIssueClient();
     SearchRestClient searchClient = client.getSearchClient();
 
-    SearchResult result = searchClient.searchJql( "fixVersion = '"+fixVersion+"'" ).claim();
+    SearchResult result = searchClient.searchJql( "fixVersion = '" + fixVersion + "'" ).claim();
     return result.getIssues();
   }
 }
