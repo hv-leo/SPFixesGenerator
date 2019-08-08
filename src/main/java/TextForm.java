@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Comparator;
@@ -112,7 +113,8 @@ class TextForm extends JPanel implements ActionListener  {
   }
 
   public String getFolderField() {
-    return folderField.getText().trim();
+    String folderName = folderField.getText().trim();
+    return folderName.endsWith( File.separator ) ? folderName : folderName + File.separator;
   }
 
   public static void main( String[] args ) {
