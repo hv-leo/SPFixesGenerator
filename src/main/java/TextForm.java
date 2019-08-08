@@ -112,7 +112,7 @@ class TextForm extends JPanel implements ActionListener  {
   }
 
   public String getFolderField() {
-    return folderField.getText();
+    return folderField.getText().trim();
   }
 
   public static void main( String[] args ) {
@@ -134,11 +134,10 @@ class TextForm extends JPanel implements ActionListener  {
    * @param e
    */
   public void actionPerformed( ActionEvent e ) {
-    System.out.println();
-    String url = getUrlField();
-    String user = getUserField();
+    String url = getUrlField().trim();
+    String user = getUserField().trim();
     String password = getPassField();
-    String fixVersion = getFixField();
+    String fixVersion = getFixField().trim();
 
     try {
       Iterable<Issue> issues = JRC.getIssuesByFixedVersion( url, user, password, fixVersion );
@@ -177,7 +176,9 @@ class TextForm extends JPanel implements ActionListener  {
 
     list.forEach( issue ->
       {
-        String issueKey = issue.getSummary().split( " " )[2];
+        String issueKey = issue.getSummary()
+          .split( " " )[2]
+          .replaceAll("[^a-zA-Z0-9-]", "");
 
         Issue baseCaseIssue = null;
         try {

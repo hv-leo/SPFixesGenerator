@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Class-Path: atlassian-httpclient-api-0.13.2.jar commons-codec-1.6.jar 
+ commons-lang-2.4.jar atlassian-util-concurrent-2.4.0-M9.jar atlassian
+ -httpclient-apache-httpcomponents-0.13.2.jar spring-beans-2.5.6.jar a
+ opalliance-1.0.jar httpmime-4.1.2.jar slf4j-simple-1.6.4.jar jaxb-api
+ -2.2.2.jar httpcore-4.2.2.jar jackson-jaxrs-1.5.5.jar jersey-client-1
+ .9.jar httpcore-nio-4.2.2.jar httpclient-cache-4.2.1-atlassian-2.jar 
+ activation-1.1.jar atlassian-httpclient-spi-0.13.2.jar atlassian-even
+ t-2.2.0.jar jira-rest-java-client-core-3.0.0.jar jaxb-impl-2.2.3.jar 
+ sal-api-2.7.0.jar jira-rest-java-client-api-3.0.0.jar jersey-core-1.5
+ .jar spring-context-2.5.6.jar jettison-1.0.1.jar jersey-json-1.5.jar 
+ stax-api-1.0.1.jar stax-api-1.0-2.jar commons-logging-1.1.1.jar jacks
+ on-mapper-asl-1.5.5.jar jackson-core-asl-1.5.5.jar jackson-xc-1.5.5.j
+ ar joda-time-1.6.jar httpasyncclient-4.0-beta3-atlassian-1.jar slf4j-
+ api-1.6.4.jar spring-core-2.5.6.jar httpasyncclient-cache-4.0-beta3-a
+ tlassian-1.jar commons-io-2.4.jar guava-14.0-rc1.jar httpclient-4.2.1
+ -atlassian-2.jar
+Main-Class: TextForm
+
